@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="#">AWS Web App</a>
+    </nav>
+    <hr>
+    <div class="input_form" style="margin: 20px">
+        <h2>Add a new person</h2>
+        <form method="post">
+            <label for="title">First name</label>
+            <br>
+            <input type="text" name="firstname" placeholder="First name" value="{{ request.form['firstname'] }}">
+            </input>
+            <br>
+            <label for="content">Last name</label>
+            <br>
+            <input type="text" name="lastname" placeholder="Last name" value="{{ request.form['lastname'] }}">
+            </input>
+            <br>
+            <label for="content">Age</label>
+            <br>
+            <input type="text" name="age" placeholder="Age" value="{{ request.form['age'] }}">
+            </input>
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="people">
+        <h2 style="margin: 20px;">People in the database</h2>
+        {% for person in people %}
+             <div class="person" style="padding: 10px; background-color: #EEE; margin: 20px;">
+                {{ person[0] }}: {{ person[1] }} {{ person[2] }} ({{ person[3] }})
+             </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
