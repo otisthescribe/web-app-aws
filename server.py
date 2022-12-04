@@ -62,7 +62,3 @@ def homepage_get():
     cursor.close()
     cnx.close()
     return render_template('index.html', people=people)
-
-
-if __name__ == "__main__":
-    app.run()
